@@ -3,3 +3,27 @@ main.jsx is top of frontend.
 under main.jsx there is app.jsx
 
 in app.jsx routes of all pages are added
+
+navbar will be shown in all pages even no routing. as it is mounted before routes
+
+using navlink adding home collection about. their routing links also added in navlink
+
+whenever we click or open any route in navlink active attribute will be added in classname of that navlink. navlink provides this feature
+
+initially we are hiding underline from navlinks but made visible in case of that link opened using activ attr. by cahnging in index.css 
+
+similarly account and cart created. using dropdown on hovering for account button.
+
+for smaller screen adding menu button. logic done in classname of button. 
+using react state variable by setting true visited when menu clicked on small screen. and setting it false in back button.
+
+as we are using a avriable in classname it needs to be dynamic
+
+context holds all common var and statevars in one place
+using createcontext
+
+whenever we add something inside value of contextprovider we can use it anywhere in app using context api. it is used to store products and other obv things.
+so in main.jsx browser-router->Shopcontext->app
+
+
+ 
