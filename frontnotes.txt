@@ -1,0 +1,5 @@
+whole app is wrapped in reactrouter [using Browser router in main.jsx]
+main.jsx is top of frontend.
+under main.jsx there is app.jsx
+
+in app.jsx routes of all pages are added
