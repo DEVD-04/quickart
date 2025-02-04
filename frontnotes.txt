@@ -25,5 +25,22 @@ using createcontext
 whenever we add something inside value of contextprovider we can use it anywhere in app using context api. it is used to store products and other obv things.
 so in main.jsx browser-router->Shopcontext->app
 
+latestproduct: use react state as it will change on adding product
+use effect as we need to load it every page refresh
+created a commoon productitem component
+use it to render latest products
 
+do same for bestsellers
+
+in collection tab we will show all products along with filters
+so use shopcontext to get all prodcts
+
+check how filtering is done. commnet in code in collection.jsx
+write togglecollection function and add it onChange of options
+
+map products using productitem component
+
+to sort items create a function. check comment on collection.jsx . use a sortType useState. call the sort function in a useEffect to load on any change
+
+to filter do similar
  
