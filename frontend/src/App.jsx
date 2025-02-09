@@ -12,12 +12,13 @@ import Orders from './pages/Orders'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
+import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
   return (
     // setting for differnt size windows
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'> 
-     
+      <ToastContainer />
       {/* navbar will be shown in all pages even no routing. as it is mounted before routes*/}
       <Navbar />
       <SearchBar />

@@ -43,4 +43,15 @@ map products using productitem component
 to sort items create a function. check comment on collection.jsx . use a sortType useState. call the sort function in a useEffect to load on any change
 
 to filter do similar
+
+searching
+keep serach related usestate in shopcontext to use it in multiple places.
+add it in app.jsx
+create a searchbar component . here searchbar will be shown in collection page by default and in other page by clicking search icon.
+uselocation gives pathname of that page like '/collection'
+to search product use applyfilter in collection.jsx to find by name
+add in useeffect
+
+
+
  

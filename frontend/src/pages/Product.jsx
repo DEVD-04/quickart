@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets.js'
+import RelatedProd from '../components/RelatedProd.jsx';
 
 const Product = () => {
 
   const { productId } = useParams(); //getting what is after : in path
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
   const [variant, setvariant] = useState('');
@@ -63,12 +64,13 @@ const Product = () => {
                 ))}
               </div>
             </div>
-          <button className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
+          <button onClick={()=>addToCart(productData._id, variant)} className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
           <hr className='mt-8 sm:w-4/5'/>
           </div>
         </div>
       </div>
-      
+      {/* related products */}
+      <RelatedProd category={productData.category} id={productData._id} />
     </div>
   ) :
     <div className='opacity-0'></div>
