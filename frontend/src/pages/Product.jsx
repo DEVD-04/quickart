@@ -59,7 +59,7 @@ const Product = () => {
             <div className='flex flex-col gap-4 my-8'>
               <p>Select Variant</p>
               <div className='flex gap-2'>
-                {productData.variants.map((item,index)=>(
+                {productData.variant.map((item,index)=>(
                   <button onClick={()=>setvariant(item)} className={`border py-2 px-4 bg-gray-100 ${item === variant ? 'border-orange-500' : ''}`} key={index}>{item}</button>
                 ))}
               </div>

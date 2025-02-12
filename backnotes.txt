@@ -16,7 +16,8 @@ final path = base_path + routin_path_in_route_func
 ex: for register : http://localhost:4000/api/user/register
 
 for products:
-listProducts is get func not post. ???
+listProducts is get func not post. ??? it will get data from backend not post data to backend
+
 for add product : use multer. if we send file as formdata, multer will parse that file. bcause product has multiple images (static data)
 
 add multer middleware in addproduct_route before addproduct func.
@@ -27,6 +28,7 @@ likewise we are getting name,price,... from req.body, we will get images from re
 now save images at cloudinary and get url and save that url in database
 
 how frontend will send data ???
+frontend will collect all data in state variables, and then it will send to backend via axios and using full backend url, productdata and token for authorization check
 
 listing: send all product in res.json to frontend
 
@@ -43,6 +45,7 @@ admin authorization on adding/removing product::
 when admin logged in it will get token from backend loginAdmin function, put that token in req.headers and in adminAuth middleware decode token and then check if it matches with admin credentials with which token was generated.
 put adminAuth middleware in productroutes before add/remove func
 // check how frontend sends the token in header???
+axios.post(backendURL+'/api/product/add', formData, {headers:{token}});
 
 
 Admin section::
@@ -52,6 +55,7 @@ in sidebar when clicked on add it will direct to '/add' page
 in app.jsx notice after sidebar component there is div where it will be loaded the page at rightside which is clicked from sidebar at leftside
 
 create a token state variable, when token is there it will load adminpage otherwise login page
+
 
 now connecting admin with backend::
 in backendURL variable in app.jsx take backend url
@@ -75,4 +79,5 @@ in logout button setToken('')
 provide state variable token to other options like add, list, orders for authorizing at backend
 
 
+now connecting frontend with backend :: 
 

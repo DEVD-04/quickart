@@ -16,7 +16,7 @@ const Add = ({token}) => {
     const [category, setCategory]= useState('Phone');
     const [variant, setVariant] = useState([]);
     const [bestseller, setBestseller] = useState(false);
-
+ 
 
     const getVariants = () => {
         switch(category) {
