@@ -1,0 +1,78 @@
+setup 
+
+user controller:
+login,register :: async (req,res)
+we can get details requires for login or register from req
+but how data coming to req from frontend???? and in which format???
+
+in register/login token created fron _id of newly created user / logged_in user and it is sent as response why and where ????
+is it sending to frontend??
+
+create routes:: .post('/routing-path', related_controller)
+
+in server.js add app.use('base_path', related_route_function)
+final path = base_path + routin_path_in_route_func
+
+ex: for register : http://localhost:4000/api/user/register
+
+for products:
+listProducts is get func not post. ???
+for add product : use multer. if we send file as formdata, multer will parse that file. bcause product has multiple images (static data)
+
+add multer middleware in addproduct_route before addproduct func.
+but how is this working?? check multer middleware code
+it takes image stores it temorarily in disk(because destination not given, it will be erased after server restatrt)
+likewise we are getting name,price,... from req.body, we will get images from req.files
+
+now save images at cloudinary and get url and save that url in database
+
+how frontend will send data ???
+
+listing: send all product in res.json to frontend
+
+single: same
+
+remove: frontend will provide id of product to be deleted, (frontend will find it from databse _id)
+
+for admin:
+store data at .env
+while /admin match req.body with .env data
+if okay then send response to front
+
+admin authorization on adding/removing product::
+when admin logged in it will get token from backend loginAdmin function, put that token in req.headers and in adminAuth middleware decode token and then check if it matches with admin credentials with which token was generated.
+put adminAuth middleware in productroutes before add/remove func
+// check how frontend sends the token in header???
+
+
+Admin section::
+options for add, list, orders
+in sidebar when clicked on add it will direct to '/add' page
+
+in app.jsx notice after sidebar component there is div where it will be loaded the page at rightside which is clicked from sidebar at leftside
+
+create a token state variable, when token is there it will load adminpage otherwise login page
+
+now connecting admin with backend::
+in backendURL variable in app.jsx take backend url
+in app.jsx use token state variable
+based on this token empty or not landing admin page decided
+pass setToken state function in login component so that if correct admin logged in the token variable will get the token from login page
+
+in login page create email, and password as state variable extracted from form input
+
+onsubmit form : 
+create a axios post request using backendURL+'specific routing location' and put {email,password})
+this is the {email,password} that we are extracting from req.body in backend. now backend will verify if it is valid admin or not. if valid backend will send token as res.json({success, token}). and frontend will get that token. if not valid then frontend will not get token
+with this token in frontend we will call setToken function to set the state token variable.
+now as we got the token for loggedin admin now we can use this token to access any authorized page by sending the token to backend for checking.
+
+but in every refresh token will be lost and admin will be logged out.
+to prevent this store token at localstorage using useeffect at app.jsx
+
+in logout button setToken('')
+
+provide state variable token to other options like add, list, orders for authorizing at backend
+
+
+
