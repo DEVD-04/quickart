@@ -80,4 +80,95 @@ provide state variable token to other options like add, list, orders for authori
 
 
 now connecting frontend with backend :: 
+similarly use axios to get productdata from backend to frontend.
+similar way of register, login user using axios and backend api.
+backend sends token on successful operation, the token is set into state variable for furtheer authorization. also stored in localstorage to avoid data loss on refresh
+
+after login/signup use useeffect to navigate to home page if token is there
+but only upto this if we want to go to login page from home page it will immediately go back to home page as token is still there it is required . but if we refresh token will be deleted and user will be loggedout. so store token in localstorage. do it in shopcontext
+
+for logout, remove token from localstorage, setToken(''), and route to login page
+
+as cartdata is related to each user differently build diff controller, routes
+for authorization add middleware.
+unlike adminauth where we only check if that is valid admin or not, here we need to check its authorization, and also need to get user._id that is stored in database. such that we may store cart data of individual user.
+getting token from req.headers sent by frontend
+using jwt.verify we can get user._id because by this token was created. then add this _id in req.body.userId for use of next function.
+add this in cartroute
+
+after cartroute we will use userid, itemid, variant from req.bbody in addcart func in cartcontroller.js
+check how cartdata is sent from frontend ???
+
+frontend part of cart is in shopcontext
+addtocart :: await axios.post(backendURL+ '/api/cart/add', {itemId, variant}, {headers:{token}})
+auth middleware uses this headers, and itemid,variant in req.body
+
+updateqty: await axios.post(backendURL+ '/api/cart/update', {itemId, variant, qty}, {headers:{token}})
+
+now if we refresh cartdata deleted, to prevent this define a func where
+get cartdata for that user from backend
+const response = await axios.post(backendURL+'/api/cart/get',{},{headers:{token}})
+and setCartData(response.cartdata)
+
+and call the func in useeffect when page refreshes [token refreshes]
+
+if we refresh on cart page page crashes
+
+
+// placing order
+create ordermodel
+
+in ordercontroller frontend will send details like userid,products to backend
+
+in frontend use state variables for extracting data and send to backend via axios with backend route
+see placeorder.jsx how all inputs handles by formdata statevariable, and how setformdata used.
+
+onsubmithandler check how cartitems is used ???
+see cartitems implementation in shopcontext...
+after saving order, delete cartdata of the user
+
+now showing orders for a user:
+from order.jsx from frontend it will send token to backend
+in backend from that token authuser will extract userId and give to ordercontroller. in ordercontroller we will find orders in ordermodel that matches with that userid and send those orders to frontend.
+then frontend wwill take that product, add order details with those product and will show in orders page of user
+
+now showing all orders for admin:
+from frontend order.jsx of admin token of admin will be sent to backend, in authadmin middleware the token will be checked if ok then proceed to allorders of ordercontroller where all orders of ordermodel will be sent to frontend. in frontend it will show them.
+
+for update order_status :
+in frontend in statushandler func send current selected value in backendurl with orderid, token. in backend in admin auth it will check if admin then sends to ordercontroller where it updates status in db.
+
+in frontend of user orders there is status field which access status of order from db, it will also gets updated
+
+in orderroute use userauth, adminauth for specific pages
+
+
+stripe payment:
+send orderdetails and token from frontend placeorder.jsx to backend url, in backend it will go through authuser if ok then adds userId. 
+in placeorderstripe at backend get all these. create a new order, save it.
+for stripe create a line item.
+create a session for stripe, mentioning success and cancel url. and send this success/cancel url to frontend.
+this success/cancel url is {origin}/verify means frontend_url/verify  (writing this type of url because we created a verify page and added '/verify' in route of app.jsx in frontend). success and orderid is sent as params with the url to frontend placeorder.jsx.
+then placeorder.jsx extracts the url and goes to that location (/verify) which is verify.jsx
+
+create a route for this verifyStripepayment at backend
+
+verify.jsx:
+get orderid, success from params
+then it calls verifystripe at backend with success and orderId and token. 
+
+verifyStripepayment:
+in backend it goes through authuser and gets userid.
+then in verifyStripepayment
+if success :: then change payment to true for that orderid and delete cartdata of that userid.
+if failes: delete the order from ordermodel
+
+send as response to verify.jsx in frontend
+if ok then setcartitem to null and navigate to orders
+else navigate to cart
+
+
+
+
+
 

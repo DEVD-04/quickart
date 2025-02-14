@@ -138,7 +138,7 @@ const ShopContextProvider = (props) => {
     const value = {
         products, currency, delivery_fee,
         search, setSearch, searchbar, setSearchbar,
-        cartItems, addToCart, cartCount, updateQty, cartAmount,
+        cartItems, setCartItems, addToCart, cartCount, updateQty, cartAmount,
         navigate, backendURL, token , setToken
     }
 

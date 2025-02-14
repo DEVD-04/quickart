@@ -8,7 +8,9 @@ const authUser = async (req, res, next) =>{
 
     try {
         const token_decode = jwt.verify(token, process.env.JWT_SECRET_KEY);
-        req.body.userId = token_decode.id;
+        // this token_decode is user._id which is stored in db
+        // sending this _id in req.body for further use
+        req.body.userId = token_decode.id;  
         next();
     } 
     catch (error) {

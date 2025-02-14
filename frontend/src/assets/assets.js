@@ -1,62 +1,61 @@
-import p_img1 from './nord2.png'
-import p_img2_1 from './img2.png'
-import p_img2_2 from './img4.png'
-import p_img2_3 from './img5.png'
-import p_img2_4 from './img4.png'
-import p_img3 from './img3.png'
-import p_img4 from './img6.png'
-import p_img5 from './img7.png'
-import p_img6 from './img8.png'
-import p_img7 from './img9.png'
-import p_img8 from './img10.png'
-import p_img9 from './img5.png'
-import p_img10 from './img10.png'
-import p_img11 from './img11.png'
-import p_img12 from './img12.png'
-import p_img13 from './img13.png'
-import p_img14 from './img14.png'
-import p_img15 from './img15.png'
-import p_img16 from './img16.png'
-import p_img17 from './img17.png'
-import p_img18 from './img18.png'
-import p_img19 from './img19.png'
-import p_img20 from './img20.png'
-import p_img21 from './img21.png'
-import p_img22 from './img22.png'
-import p_img23 from './img23.png'
-import p_img24 from './img24.png'
-import p_img25 from './img25.png'
-import p_img26 from './img26.png'
-import p_img27 from './img27.png'
-import p_img28 from './img28.png'
-import p_img29 from './img29.png'
-import p_img30 from './img30.png'
-import p_img31 from './img31.png'
-import p_img32 from './img32.png'
-import p_img33 from './p_img33.png'
-import p_img34 from './p_img34.png'
-import p_img35 from './p_img35.png'
-import p_img36 from './p_img36.png'
-import p_img37 from './p_img37.png'
-import p_img38 from './p_img38.png'
-import p_img39 from './p_img39.png'
-import p_img40 from './p_img40.png'
-import p_img41 from './p_img41.png'
-import p_img42 from './p_img42.png'
-import p_img43 from './p_img43.png'
-import p_img44 from './p_img44.png'
-import p_img45 from './p_img45.png'
-import p_img46 from './p_img46.png'
-import p_img47 from './p_img47.png'
-import p_img48 from './p_img48.png'
-import p_img49 from './p_img49.png'
-import p_img50 from './p_img50.png'
-import p_img51 from './p_img51.png'
-import p_img52 from './p_img52.png'
+// import p_img1 from './nord2.png'
+// import p_img2_1 from './img2.png'
+// import p_img2_2 from './img4.png'
+// import p_img2_3 from './img5.png'
+// import p_img2_4 from './img4.png'
+// import p_img3 from './img3.png'
+// import p_img4 from './img6.png'
+// import p_img5 from './img7.png'
+// import p_img6 from './img8.png'
+// import p_img7 from './img9.png'
+// import p_img8 from './img10.png'
+// import p_img9 from './img5.png'
+// import p_img10 from './img10.png'
+// import p_img11 from './img11.png'
+// import p_img12 from './img12.png'
+// import p_img13 from './img13.png'
+// import p_img14 from './img14.png'
+// import p_img15 from './img15.png'
+// import p_img16 from './img16.png'
+// import p_img17 from './img17.png'
+// import p_img18 from './img18.png'
+// import p_img19 from './img19.png'
+// import p_img20 from './img20.png'
+// import p_img21 from './img21.png'
+// import p_img22 from './img22.png'
+// import p_img23 from './img23.png'
+// import p_img24 from './img24.png'
+// import p_img25 from './img25.png'
+// import p_img26 from './img26.png'
+// import p_img27 from './img27.png'
+// import p_img28 from './img28.png'
+// import p_img29 from './img29.png'
+// import p_img30 from './img30.png'
+// import p_img31 from './img31.png'
+// import p_img32 from './img32.png'
+// import p_img33 from './p_img33.png'
+// import p_img34 from './p_img34.png'
+// import p_img35 from './p_img35.png'
+// import p_img36 from './p_img36.png'
+// import p_img37 from './p_img37.png'
+// import p_img38 from './p_img38.png'
+// import p_img39 from './p_img39.png'
+// import p_img40 from './p_img40.png'
+// import p_img41 from './p_img41.png'
+// import p_img42 from './p_img42.png'
+// import p_img43 from './p_img43.png'
+// import p_img44 from './p_img44.png'
+// import p_img45 from './p_img45.png'
+// import p_img46 from './p_img46.png'
+// import p_img47 from './p_img47.png'
+// import p_img48 from './p_img48.png'
+// import p_img49 from './p_img49.png'
+// import p_img50 from './p_img50.png'
+// import p_img51 from './p_img51.png'
+// import p_img52 from './p_img52.png'
 
 
 import logo from './logo.png'
-import hero_img from './hero_img.png'
 import cart_icon from './cart_icon.png'
 import bin_icon from './bin_icon.png'
 import dropdown_icon from './dropdown_icon.png'
@@ -68,7 +67,6 @@ import star_dull_icon from './star_dull_icon.png'
 import star_icon from './star_icon.png'
 import support_img from './support_img.png'
 import menu_icon from './menu_icon.png'
-import about_img from './about_img.png'
 import contact_img from './contact_img.png'
 import razorpay_logo from './razorpay_logo.png'
 import stripe_logo from './stripe_logo.png'
@@ -77,7 +75,6 @@ import lead_image from './lead-img.png'
 
 export const assets = {
     logo,
-    hero_img,
     lead_image,
     cart_icon,
     dropdown_icon,
@@ -90,13 +87,12 @@ export const assets = {
     bin_icon,
     support_img,
     menu_icon,
-    about_img,
     contact_img,
     razorpay_logo,
     stripe_logo,
     cross_icon
 }
-
+/*
 export const products = [
     {
         _id: "aaaaa",
@@ -452,7 +448,7 @@ export const products = [
         date: 1716646445448,
         bestseller: false
     },
-    /*
+    
     {
         _id: "aaabg",
         name: "Girls Round Neck Cotton Top",
@@ -692,5 +688,7 @@ export const products = [
         date: 1716668445448,
         bestseller: false
     }
-*/
+
 ]
+
+*/
